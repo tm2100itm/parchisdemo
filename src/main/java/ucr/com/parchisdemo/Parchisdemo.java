@@ -4,6 +4,9 @@
 
 package ucr.com.parchisdemo;
 
+import ucr.com.parchisdemo.controller.GameController;
+import ucr.com.parchisdemo.view.GUIGame;
+
 /**
  *
  * @author ITM
@@ -11,6 +14,6 @@ package ucr.com.parchisdemo;
 public class Parchisdemo {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        new GameController();
     }
 }
