@@ -10,7 +10,7 @@ package ucr.com.parchisdemo.model;
  */
 public class Square {
     private Piece piece;
-        private Position position;
+    private Position position;
 
     public Square() {
     }
