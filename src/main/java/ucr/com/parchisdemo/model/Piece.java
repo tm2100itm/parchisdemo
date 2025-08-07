@@ -4,6 +4,7 @@
  */
 package ucr.com.parchisdemo.model;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 
@@ -15,6 +16,7 @@ public class Piece {
    private Position position;
     private String direction;
     private ImageIcon image;
+    private Color color;
 
     public Piece() {
         
