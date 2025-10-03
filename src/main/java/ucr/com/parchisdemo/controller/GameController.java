@@ -4,6 +4,7 @@
  */
 package ucr.com.parchisdemo.controller;
 
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,8 +32,8 @@ public class GameController implements ActionListener{
 
     }
     
-    public void draw(Graphics g){
-      board.draw(g);
+    public void draw(Component c,Graphics g){
+      board.draw(c,g);
     }
     
 }
