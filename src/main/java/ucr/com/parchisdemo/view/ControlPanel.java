@@ -20,12 +20,18 @@ public class ControlPanel extends javax.swing.JPanel {
     public ControlPanel() {
         initComponents();
         fondoJuego = new ImageIcon("./src/main/resources/img/TableroFondo.png");
+       
     }
     
      public void setController(GameController controller) {
         this.controller = controller;
+         listen();
     }
 
+     public void listen(){
+     btnExit.addActionListener(controller);
+     btnPlay.addActionListener(controller);
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,10 +53,12 @@ public class ControlPanel extends javax.swing.JPanel {
         add(btnDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 70, -1, -1));
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonSalir.png"))); // NOI18N
+        btnExit.setActionCommand("exit");
         btnExit.setContentAreaFilled(false);
         add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, -1, -1));
 
         btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonJugar.png"))); // NOI18N
+        btnPlay.setActionCommand("playGame");
         btnPlay.setContentAreaFilled(false);
         add(btnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 350, -1, -1));
 

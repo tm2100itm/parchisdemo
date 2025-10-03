@@ -13,4 +13,27 @@ import java.awt.Color;
 public class Player {
     private Color color;
     private Piece[] pieces;
+
+    public Player(Color color) {
+        this.color = color;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public Piece[] getPieces() {
+        return pieces;
+    }
+
+    public void setPieces(Piece[] pieces) {
+        this.pieces = pieces;
+    }
+    
+    
+    
 }

@@ -32,7 +32,8 @@ public class BoardPanel extends javax.swing.JPanel {
         super.paintComponent(g);
        // g.drawString("Esta es una prueba", 100, 100);
         tableroGrafico.paintIcon(this, g, 0, 0);
-        controller.draw(this,g);
+        if(controller!=null){
+        controller.draw(this,g);}
     }
 
     /**

@@ -30,7 +30,17 @@ public class GameController implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-
+    switch(e.getActionCommand()){
+        case "playGame":
+            //Seleccionar jugador
+            System.out.println("Presionó jugar");
+            break;
+        case "exit":
+            System.out.println("Fin del juego");
+            System.exit(0);
+            break;
+    
+    }
 
     }
     
