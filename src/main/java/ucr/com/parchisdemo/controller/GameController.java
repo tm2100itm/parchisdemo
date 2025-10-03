@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import ucr.com.parchisdemo.model.Board;
 import ucr.com.parchisdemo.view.GUIGame;
+import ucr.com.parchisdemo.view.GUIGame2;
 
 /**
  *
@@ -17,11 +18,12 @@ import ucr.com.parchisdemo.view.GUIGame;
  */
 public class GameController implements ActionListener{
     private Board board;
-    private GUIGame guiGame;
+    private GUIGame2 guiGame;
 
     public GameController() {
-        guiGame=new GUIGame(this);
+        guiGame=new GUIGame2(this);
         board = new Board();
+        guiGame.setVisible(true);
     }
     
     

@@ -4,17 +4,35 @@
  */
 package ucr.com.parchisdemo.view;
 
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
+import ucr.com.parchisdemo.controller.GameController;
+
 /**
  *
  * @author ITM
  */
 public class BoardPanel extends javax.swing.JPanel {
-
+  private ImageIcon tableroGrafico;
+  private GameController controller;
     /**
      * Creates new form BoardPanel
      */
     public BoardPanel() {
         initComponents();
+        tableroGrafico = new ImageIcon("./src/main/resources/img/tableroGrafico2.png");
+    }
+    
+     public void setController(GameController controller) {
+        this.controller = controller;
+    }
+    
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+       // g.drawString("Esta es una prueba", 100, 100);
+        tableroGrafico.paintIcon(this, g, 0, 0);
+        controller.draw(this,g);
     }
 
     /**

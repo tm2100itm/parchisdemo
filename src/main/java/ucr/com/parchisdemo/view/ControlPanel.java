@@ -4,17 +4,26 @@
  */
 package ucr.com.parchisdemo.view;
 
+import javax.swing.ImageIcon;
+import ucr.com.parchisdemo.controller.GameController;
+
 /**
  *
  * @author ITM
  */
 public class ControlPanel extends javax.swing.JPanel {
-
+   private ImageIcon fondoJuego;
+   private GameController controller;
     /**
      * Creates new form ControlPanel
      */
     public ControlPanel() {
         initComponents();
+        fondoJuego = new ImageIcon("./src/main/resources/img/TableroFondo.png");
+    }
+    
+     public void setController(GameController controller) {
+        this.controller = controller;
     }
 
     /**
@@ -26,19 +35,38 @@ public class ControlPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        btnDado = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
+        btnPlay = new javax.swing.JButton();
+        jlJugador = new javax.swing.JLabel();
+        jlFondo = new javax.swing.JLabel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnDado.setText("dado");
+        add(btnDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 70, -1, -1));
+
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonSalir.png"))); // NOI18N
+        btnExit.setContentAreaFilled(false);
+        add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, -1, -1));
+
+        btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonJugar.png"))); // NOI18N
+        btnPlay.setContentAreaFilled(false);
+        add(btnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 350, -1, -1));
+
+        jlJugador.setText("jLabel2");
+        add(jlJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, -1, -1));
+
+        jlFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/TableroFondo.png"))); // NOI18N
+        add(jlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDado;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnPlay;
+    private javax.swing.JLabel jlFondo;
+    private javax.swing.JLabel jlJugador;
     // End of variables declaration//GEN-END:variables
 }
