@@ -4,11 +4,12 @@
  */
 package ucr.com.parchisdemo.model;
 
+import java.awt.Component;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 
 /**
- *
+ * Clase que maneja el tablero
  * @author ITM
  */
 public class Board {
@@ -19,12 +20,15 @@ public class Board {
         squares = new Square[68];
         start();
     }
-
-    public void draw(Graphics g) {
+/** Método encargado de dibujar una figura
+ * 
+ * @param g Es el objeto gráfico
+ **/
+    public void draw(Component c,Graphics g) {
         for (int element = 0; element < squares.length; element++) {
             if (squares[element] != null) {
                 if(squares[element].getPiece()!=null){
-                squares[element].getPiece().draw(g);
+                squares[element].getPiece().draw(c,g);
                 }
             }
         }

@@ -5,6 +5,7 @@
 package ucr.com.parchisdemo.model;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 
@@ -29,8 +30,8 @@ public class Piece {
         this.image = image;
     }
     
-    public void draw(Graphics g){
-    image.paintIcon(null, g, position.getX(), position.getY());
+    public void draw(Component c,Graphics g){
+    image.paintIcon(c, g, position.getX(), position.getY());
     }
 
     public Position getPosition() {

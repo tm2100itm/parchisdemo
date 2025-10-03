@@ -4,31 +4,19 @@
  */
 package ucr.com.parchisdemo.view;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import ucr.com.parchisdemo.controller.GameController;
-
 /**
  *
  * @author ITM
  */
-public class GamePanel extends javax.swing.JPanel {
+public class BoardPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form GamePanel
+     * Creates new form BoardPanel
      */
-    public GamePanel() {
+    public BoardPanel() {
         initComponents();
-        tableroGrafico = new ImageIcon("./src/main/resources/img/tableroParchisCompleto.png");
     }
 
-    public void setController(GameController controller) {
-        this.controller = controller;
-    }
-
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,24 +30,15 @@ public class GamePanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1315, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 647, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-       // g.drawString("Esta es una prueba", 100, 100);
-        tableroGrafico.paintIcon(null, g, 0, 0);
-        //controller.draw(g);
-    }
 
-    private ImageIcon tableroGrafico;
-    private GameController controller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
