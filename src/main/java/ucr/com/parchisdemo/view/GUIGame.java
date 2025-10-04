@@ -4,6 +4,7 @@
  */
 package ucr.com.parchisdemo.view;
 
+import javax.swing.JOptionPane;
 import ucr.com.parchisdemo.controller.GameController;
 
 /**
@@ -21,6 +22,14 @@ public class GUIGame extends javax.swing.JFrame {
         controlPanel.setController(controller);
     }
 
+    
+    public void showMessage(String message){
+        JOptionPane.showMessageDialog(null,message);
+    }
+    
+    public String getMessage(String message){
+        return JOptionPane.showInputDialog(message);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

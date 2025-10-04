@@ -5,6 +5,7 @@
 package ucr.com.parchisdemo;
 
 import ucr.com.parchisdemo.controller.GameController;
+import ucr.com.parchisdemo.controller.MainController;
 
 
 /**
@@ -14,6 +15,7 @@ import ucr.com.parchisdemo.controller.GameController;
 public class Parchisdemo {
 
     public static void main(String[] args) {
-        new GameController();
+      //  new GameController();
+      new MainController();
     }
 }

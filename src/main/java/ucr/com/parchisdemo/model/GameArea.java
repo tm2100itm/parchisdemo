@@ -9,5 +9,18 @@ package ucr.com.parchisdemo.model;
  * @author ITM
  */
 public class GameArea {
+    private Board board;
+    private Player player1;
+    private Player player2;
+
+    public GameArea() {
+        board= new Board();
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+    
+    
     
 }

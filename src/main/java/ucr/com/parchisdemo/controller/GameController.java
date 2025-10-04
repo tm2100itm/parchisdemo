@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import ucr.com.parchisdemo.model.Board;
+import ucr.com.parchisdemo.model.GameArea;
 
 import ucr.com.parchisdemo.view.GUIGame;
 
@@ -19,10 +20,12 @@ import ucr.com.parchisdemo.view.GUIGame;
 public class GameController implements ActionListener{
     private Board board;
     private GUIGame guiGame;
+    private GameArea gameArea;
 
     public GameController() {
         guiGame=new GUIGame(this);
-        board = new Board();
+        gameArea= new GameArea();
+        board = gameArea.getBoard();
         guiGame.setVisible(true);
     }
     
@@ -32,6 +35,7 @@ public class GameController implements ActionListener{
     public void actionPerformed(ActionEvent e) {
     switch(e.getActionCommand()){
         case "playGame":
+            String color=guiGame.getMessage("Escoja su color");
             //Seleccionar jugador
             System.out.println("Presionó jugar");
             break;
