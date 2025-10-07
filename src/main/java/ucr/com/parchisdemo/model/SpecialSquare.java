@@ -15,6 +15,11 @@ public class SpecialSquare extends Square{
     public SpecialSquare(String type) {
         this.type = type;
     }
+    
+    public SpecialSquare(String type,Position position) {
+        super(position);
+        this.type = type;
+    }
 
     public SpecialSquare(String type, Piece piece, Position position) {
         super(piece, position);

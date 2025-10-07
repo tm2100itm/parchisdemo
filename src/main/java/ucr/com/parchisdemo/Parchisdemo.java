@@ -15,7 +15,7 @@ import ucr.com.parchisdemo.controller.MainController;
 public class Parchisdemo {
 
     public static void main(String[] args) {
-      //  new GameController();
-      new MainController();
+        new GameController();
+      //new MainController();
     }
 }

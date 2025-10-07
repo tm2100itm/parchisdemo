@@ -7,6 +7,10 @@ package ucr.com.parchisdemo.model;
 import java.awt.Component;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
+import ucr.com.parchisdemo.model.Piece;
+import ucr.com.parchisdemo.model.Position;
+import ucr.com.parchisdemo.model.Home;
+import ucr.com.parchisdemo.model.Square;
 
 /**
  * Clase que maneja el tablero
@@ -16,9 +20,21 @@ import javax.swing.ImageIcon;
 public class Board {
 
     private Square[] squares;
+    // private int[][]  coordenate;
+    private Home homeYellow;
+    private Home homeRed;
+    private Home homeBlue;
+    private Home homeGreen;
+    private Position[] positions;
 
-    public Board() {
+    public Board(String color1, String color2) {
         squares = new Square[68];
+        positions = new Position[68];
+        homeYellow = new Home(color1);
+        homeRed = new Home(color2);
+        homeBlue = new Home("Azul");
+        homeGreen = new Home("Verde");
+        setPositions();
         start();
     }
 
@@ -26,7 +42,7 @@ public class Board {
      * Método encargado de dibujar una figura
      *
      * @param g Es el objeto gráfico
- *
+     *
      */
     public void draw(Component c, Graphics g) {
         for (int element = 0; element < squares.length; element++) {
@@ -37,161 +53,151 @@ public class Board {
             }
         }
 
+        for (int index = 0; index < homeYellow.getLength(); index++) {
+            if (homeYellow != null) {
+                homeYellow.getPiece(index).draw(c, g);
+                homeRed.getPiece(index).draw(c, g);
+                homeBlue.getPiece(index).draw(c, g);
+                homeGreen.getPiece(index).draw(c, g);
+            }
+        }
+
+    }//Fin del método draw
+
+    public void setPositions() {
+        int coordenateX = 360;
+        int coordenateY = 590;
+
+        for (int element = 0; element < 8; element++) {
+            System.out.println(element);
+            System.out.println(coordenateY);
+            positions[element] = new Position(coordenateX, coordenateY);
+            squares[element] = new Square(positions[element]);
+            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            coordenateY -= 30;
+        }
+
+        coordenateX = 380;
+        coordenateY = 360;
+        for (int element = 8; element < 16; element++) {
+            positions[element] = new Position(coordenateX, coordenateY);
+            squares[element] = new Square(positions[element]);
+            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            coordenateX += 30;
+
+        }
+        //position 16 Solo tiene la coordenada
+        coordenateX = 590;
+        coordenateY = 300;
+        positions[16] = new Position(coordenateX, coordenateY);
+        squares[16] = new SpecialSquare("Avanza Azul", positions[16]);
+        squares[16].setPiece(new Piece(positions[16], new ImageIcon("./src/main/resources/img/piecered.png")));
+
+        coordenateX = 590;
+        coordenateY = 225;
+        for (int element = 17; element < 25; element++) {
+            positions[element] = new Position(coordenateX, coordenateY);
+            squares[element] = new Square(positions[element]);
+            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            coordenateX -= 30;
+            System.out.println(coordenateX);
+        }
+        coordenateX = 360;
+        coordenateY = 215;
+        for (int element = 25; element < 33; element++) {
+            positions[element] = new Position(coordenateX, coordenateY);
+            squares[element] = new Square(positions[element]);
+            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            coordenateY -= 30;
+            System.out.println(coordenateY);
+        }
+        coordenateX = 290;
+        coordenateY = 5;
+        positions[33] = new Position(coordenateX, coordenateY);
+        squares[33] = new SpecialSquare("Avanza Rojo", positions[33]);
+        squares[33].setPiece(new Piece(positions[33], new ImageIcon("./src/main/resources/img/pieceblack.png")));
+
+        coordenateX = 225;
+        coordenateY = 5;
+        for (int element = 34; element < 42; element++) {
+            positions[element] = new Position(coordenateX, coordenateY);
+            squares[element] = new Square(positions[element]);
+            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            coordenateY += 30;
+            System.out.println(coordenateY);
+        }
+
+        coordenateX = 215;
+        coordenateY = 225;
+        for (int element = 42; element < 50; element++) {
+            positions[element] = new Position(coordenateX, coordenateY);
+            squares[element] = new Square(positions[element]);
+            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            coordenateX -= 30;
+            System.out.println(coordenateX);
+        }
+        //position 50 Solo tiene la coordenada
+        coordenateX = 5;
+        coordenateY = 300;
+        positions[50] = new Position(coordenateX, coordenateY);
+        squares[50] = new SpecialSquare("Avanza Verde", positions[50]);
+        squares[50].setPiece(new Piece(positions[50], new ImageIcon("./src/main/resources/img/pieceblue.png")));
+
+        coordenateX = 5;
+        coordenateY = 360;
+        for (int element = 51; element < 59; element++) {
+            positions[element] = new Position(coordenateX, coordenateY);
+            squares[element] = new Square(positions[element]);
+            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            coordenateX += 30;
+            System.out.println(coordenateX);
+        }
+        coordenateX = 230;
+        coordenateY = 380;
+        for (int element = 59; element < 67; element++) {
+            positions[element] = new Position(coordenateX, coordenateY);
+            squares[element] = new Square(positions[element]);
+            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            coordenateY += 30;
+            System.out.println(coordenateY);
+        }
+
+        //posición 68
+        coordenateX = 290;
+        coordenateY = 590;
+        positions[67] = new Position(coordenateX, coordenateY);
+        squares[67] = new SpecialSquare("Avanza Amarillo", positions[67]);
+        squares[67].setPiece(new Piece(positions[67], new ImageIcon("./src/main/resources/img/pieceblack.png")));
+
+    }
+
+    public void setQuadrant1() {
+        //Amarillo
+        homeYellow.setPiece(0, new Piece(new Position(480, 450), new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+        homeYellow.setPiece(1, new Piece(new Position(520, 450), new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+        homeYellow.setPiece(2, new Piece(new Position(480, 550), new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+        homeYellow.setPiece(3, new Piece(new Position(520, 550), new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+        //Rojo
+        homeRed.setPiece(0, new Piece(new Position(80, 50), new ImageIcon("./src/main/resources/img/piecered.png")));
+        homeRed.setPiece(1, new Piece(new Position(120, 50), new ImageIcon("./src/main/resources/img/piecered.png")));
+        homeRed.setPiece(2, new Piece(new Position(80, 150), new ImageIcon("./src/main/resources/img/piecered.png")));
+        homeRed.setPiece(3, new Piece(new Position(120, 150), new ImageIcon("./src/main/resources/img/piecered.png")));
+
+        //Green
+        homeGreen.setPiece(0, new Piece(new Position(480, 50), new ImageIcon("./src/main/resources/img/piecegreen.png")));
+        homeGreen.setPiece(1, new Piece(new Position(520, 50), new ImageIcon("./src/main/resources/img/piecegreen.png")));
+        homeGreen.setPiece(2, new Piece(new Position(480, 150), new ImageIcon("./src/main/resources/img/piecegreen.png")));
+        homeGreen.setPiece(3, new Piece(new Position(520, 150), new ImageIcon("./src/main/resources/img/piecegreen.png")));
+        //Blue 
+        homeBlue.setPiece(0, new Piece(new Position(80, 450), new ImageIcon("./src/main/resources/img/pieceblue.png")));
+        homeBlue.setPiece(1, new Piece(new Position(120, 450), new ImageIcon("./src/main/resources/img/pieceblue.png")));
+        homeBlue.setPiece(2, new Piece(new Position(80, 550), new ImageIcon("./src/main/resources/img/pieceblue.png")));
+        homeBlue.setPiece(3, new Piece(new Position(120, 550), new ImageIcon("./src/main/resources/img/pieceblue.png")));
+
     }
 
     public void start() {
-        int coordenateX = 360;
-        int coordenateY = 620;
-        for (int element = 0; element < 4; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateY -= 30;
-        }
-        squares[4] = new SpecialSquare("salida amarilla", null, new Position(coordenateX, coordenateY));
-        squares[4].setPiece(new Piece(squares[4].getPosition(), "left", new ImageIcon("./src/main/resources/img/pieceyellow.png")));
-        coordenateY -= 30;
-
-        for (int element = 5; element < 8; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/pieceblue.png")));
-            coordenateY -= 40;
-        }
-        coordenateY+=15;
-        coordenateX = 390;
-        for (int element = 8; element <= 10; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateX += 25;
-        }
-        coordenateX+=10;
-        squares[11] = new SpecialSquare("descanso", null, new Position(coordenateX, coordenateY));
-        squares[11].setPiece(new Piece(squares[11].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecegreen.png")));
-        coordenateX += 30;
-
-        for (int element = 12; element <= 15; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateX += 30;
-        }
-        coordenateX -= 30;
-        coordenateY -= 70;
-        squares[16] = new SpecialSquare("avanza azul", null, new Position(coordenateX, coordenateY));
-        squares[16].setPiece(new Piece(squares[16].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecegreen.png")));
-        //coordenateY += 30;
-        coordenateY -= 70;
-        for (int element = 17; element <= 20; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateX -= 30;
-        }
-        squares[21] = new SpecialSquare("salida azul", null, new Position(coordenateX, coordenateY));
-        squares[21].setPiece(new Piece(squares[21].getPosition(), "left", new ImageIcon("./src/main/resources/img/pieceblue.png")));
-        coordenateX -= 10;
-        for (int element = 22; element <= 24; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateX -= 30;
-        }
-        coordenateX -= 10;
-        coordenateY -= 18;
-
-        for (int element = 25; element <= 27; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateY -= 30;
-        }
-        squares[28] = new SpecialSquare("descanso", null, new Position(coordenateX, coordenateY));
-        squares[28].setPiece(new Piece(squares[28].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecegreen.png")));
-        coordenateY -= 30;
-
-        for (int element = 29; element < 33; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateY -= 30;
-        }
-        coordenateY += 30;
-        coordenateX -= 60;
-        squares[33] = new SpecialSquare("avanza rojo", null, new Position(coordenateX, coordenateY));
-        squares[33].setPiece(new Piece(squares[33].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecegreen.png")));
-        coordenateX -= 70;
-        for (int element = 34; element < 38; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateY += 30;
-        }
-
-        squares[38] = new SpecialSquare("salida roja", null, new Position(coordenateX, coordenateY));
-        squares[38].setPiece(new Piece(squares[38].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered1.png")));
-
-        coordenateY += 30;
-        for (int element = 39; element < 42; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateY += 30;
-        }
-
-        coordenateY -= 15;
-        coordenateX -= 30;
-        for (int element = 42; element < 45; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateX -= 30;
-
-        }
-       // coordenateY -= 1;
-        squares[45] = new SpecialSquare("descanso", null, new Position(coordenateX, coordenateY));
-        squares[45].setPiece(new Piece(squares[45].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecegreen.png")));
-        coordenateX -= 30;
-
-        for (int element = 46; element < 50; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateX -= 30;
-
-        }
-        coordenateX += 30;
-        coordenateY += 60;
-        squares[50] = new SpecialSquare("avanza verde", null, new Position(coordenateX, coordenateY));
-        squares[50].setPiece(new Piece(squares[50].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecegreen.png")));
-        coordenateY += 90;
-
-        for (int element = 51; element < 55; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateX += 30;
-
-        }
-
-        squares[55] = new SpecialSquare("salida verde", null, new Position(coordenateX, coordenateY));
-        squares[55].setPiece(new Piece(squares[55].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecegreen1.png")));
-
-        coordenateX += 30;
-        for (int element = 56; element < 59; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateX += 30;
-        }
-        coordenateY += 15;
-        for (int element = 59; element < 62; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateY += 25;
-        }
-
-        squares[62] = new SpecialSquare("descanso", null, new Position(coordenateX, coordenateY));
-        squares[62].setPiece(new Piece(squares[62].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecegreen.png")));
-        coordenateY += 30;
-
-        for (int element = 63; element < 67; element++) {
-            squares[element] = new Square(null, new Position(coordenateX, coordenateY));
-            squares[element].setPiece(new Piece(squares[element].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecered.png")));
-            coordenateY += 30;
-        }
-        coordenateX += 70;
-        coordenateY -= 30;
-        squares[67] = new SpecialSquare("avanza amarillo", null, new Position(coordenateX, coordenateY));
-        squares[67].setPiece(new Piece(squares[67].getPosition(), "left", new ImageIcon("./src/main/resources/img/piecegreen.png")));
-
+        setQuadrant1();
     }
 
 }
