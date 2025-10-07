@@ -14,7 +14,7 @@ public class GameArea {
     private Player player2;
 
     public GameArea() {
-        board= new Board();
+        board= new Board("Rojo","Amarillo");
     }
 
     public Board getBoard() {

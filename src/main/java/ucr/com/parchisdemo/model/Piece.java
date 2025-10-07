@@ -15,8 +15,7 @@ import javax.swing.ImageIcon;
  */
 public class Piece {
    private Position position;
-    private String direction;
-    private ImageIcon image;
+      private ImageIcon image;
     private Color color;
 
     public Piece() {
@@ -24,9 +23,8 @@ public class Piece {
     }
 
     
-    public Piece(Position position, String direction, ImageIcon image) {
+    public Piece(Position position,  ImageIcon image) {
         this.position=position;
-        this.direction = direction;
         this.image = image;
     }
     
@@ -42,13 +40,6 @@ public class Piece {
         this.position = position;
     }
 
-    public String getDirection() {
-        return direction;
-    }
-
-    public void setDirection(String direction) {
-        this.direction = direction;
-    }
 
     public ImageIcon getImage() {
         return image;
@@ -65,6 +56,4 @@ public class Piece {
     public void setColor(Color color) {
         this.color = color;
     }
-    
-    
 }
