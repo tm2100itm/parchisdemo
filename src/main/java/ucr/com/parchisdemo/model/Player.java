@@ -11,29 +11,17 @@ import java.awt.Color;
  * @author ITM
  */
 public class Player {
-    private Color color;
-    private Piece[] pieces;
+    private String color;
+    private String name;
+    private Home quadrant;
 
-    public Player(Color color) {
+    public Player(String color,String name, Home quadrant) {
         this.color = color;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
-    }
-
-    public Piece[] getPieces() {
-        return pieces;
-    }
-
-    public void setPieces(Piece[] pieces) {
-        this.pieces = pieces;
+        this.name=name;
+        this.quadrant = quadrant;
     }
     
     
     
+   
 }

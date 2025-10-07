@@ -19,6 +19,10 @@ public class Square {
         this.piece = piece;
         this.position = position;
     }
+
+    public Square(Position position) {
+        this.position = position;
+    }
     
     
     
