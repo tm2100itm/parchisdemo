@@ -22,6 +22,10 @@ public class GUIGame extends javax.swing.JFrame {
         controlPanel.setController(controller);
     }
 
+    public BoardPanel getBoardPanel() {
+        return boardPanel;
+    }
+
     
     public void showMessage(String message){
         JOptionPane.showMessageDialog(null,message);

@@ -32,6 +32,10 @@ public class Home {
    public int getLength(){
       return pieces.length;
    } 
+
+    public String getColor() {
+        return color;
+    }
     
     
 }

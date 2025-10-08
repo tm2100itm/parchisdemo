@@ -4,6 +4,11 @@
  */
 package ucr.com.parchisdemo.view;
 
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import ucr.com.parchisdemo.controller.GameController;
+import ucr.com.parchisdemo.controller.MainController;
+
 /**
  *
  * @author ITM
@@ -13,10 +18,29 @@ public class OptionGUI extends javax.swing.JFrame {
     /**
      * Creates new form OptionGUI
      */
-    public OptionGUI() {
+    public OptionGUI(GameController controller) {
         initComponents();
+        listen(controller);
     }
 
+    
+    public void listen(GameController controller){
+       btnNext.addActionListener(controller);
+    }
+    public String getCbxColor() {
+        return (String) cbxColor.getSelectedItem();
+    }
+
+    public String getTxtNamePlayer1() {
+        return txtNamePlayer1.getText();
+    }
+
+    public String getTxtNamePlayer2() {
+        return txtNamePlayer2.getText();
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,14 +51,12 @@ public class OptionGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtNamePlayer1 = new javax.swing.JTextField();
+        txtNamePlayer2 = new javax.swing.JTextField();
+        cbxColor = new javax.swing.JComboBox<>();
+        btnNext = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,23 +64,7 @@ public class OptionGUI extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel2.setText("Escoja su color");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
-
-        jButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jButton1.setText("rojo");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
-
-        jButton2.setBackground(new java.awt.Color(0, 204, 0));
-        jButton2.setText("verde");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
-
-        jButton3.setBackground(new java.awt.Color(0, 51, 204));
-        jButton3.setText("azul");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, -1));
-
-        jButton4.setBackground(new java.awt.Color(255, 255, 0));
-        jButton4.setText("amarillo");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Nombre Jugador 1");
@@ -68,11 +74,17 @@ public class OptionGUI extends javax.swing.JFrame {
         jLabel4.setText("Nombre jugador 2");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
-        jTextField1.setColumns(20);
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
+        txtNamePlayer1.setColumns(20);
+        getContentPane().add(txtNamePlayer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
 
-        jTextField2.setColumns(20);
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, -1, -1));
+        txtNamePlayer2.setColumns(20);
+        getContentPane().add(txtNamePlayer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, -1, -1));
+
+        cbxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----------", "Amarillo", "Rojo", "Azul", "Verde" }));
+        getContentPane().add(cbxColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
+
+        btnNext.setText("Continuar");
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -83,48 +95,16 @@ public class OptionGUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(OptionGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(OptionGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(OptionGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(OptionGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new OptionGUI().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JComboBox<String> cbxColor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtNamePlayer1;
+    private javax.swing.JTextField txtNamePlayer2;
     // End of variables declaration//GEN-END:variables
 }

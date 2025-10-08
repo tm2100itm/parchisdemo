@@ -12,26 +12,30 @@ import ucr.com.parchisdemo.controller.GameController;
  * @author ITM
  */
 public class ControlPanel extends javax.swing.JPanel {
-   private ImageIcon fondoJuego;
-   private GameController controller;
+
+    private ImageIcon fondoJuego;
+    private GameController controller;
+
     /**
      * Creates new form ControlPanel
      */
     public ControlPanel() {
         initComponents();
         fondoJuego = new ImageIcon("./src/main/resources/img/TableroFondo.png");
-       
-    }
-    
-     public void setController(GameController controller) {
-        this.controller = controller;
-         listen();
+
     }
 
-     public void listen(){
-     btnExit.addActionListener(controller);
-     btnPlay.addActionListener(controller);
-     }
+    public void setController(GameController controller) {
+        this.controller = controller;
+        listen();
+    }
+
+    public void listen() {
+        btnDado.addActionListener(controller);
+        btnExit.addActionListener(controller);
+        btnPlay.addActionListener(controller);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

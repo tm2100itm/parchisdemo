@@ -21,21 +21,18 @@ public class Board {
 
     private Square[] squares;
     // private int[][]  coordenate;
-    private Home homeYellow;
-    private Home homeRed;
-    private Home homeBlue;
-    private Home homeGreen;
+    private Home homePlayer1;
+    private Home homePlayer2;
+
     private Position[] positions;
 
-    public Board(String color1, String color2) {
+    public Board(Home homePlayer1, Home homePlayer2) {
         squares = new Square[68];
         positions = new Position[68];
-        homeYellow = new Home(color1);
-        homeRed = new Home(color2);
-        homeBlue = new Home("Azul");
-        homeGreen = new Home("Verde");
+        this.homePlayer1 = homePlayer1;
+        this.homePlayer2 = homePlayer2;
         setPositions();
-        start();
+        // start();
     }
 
     /**
@@ -53,12 +50,15 @@ public class Board {
             }
         }
 
-        for (int index = 0; index < homeYellow.getLength(); index++) {
-            if (homeYellow != null) {
-                homeYellow.getPiece(index).draw(c, g);
-                homeRed.getPiece(index).draw(c, g);
-                homeBlue.getPiece(index).draw(c, g);
-                homeGreen.getPiece(index).draw(c, g);
+        for (int index = 0; index < homePlayer1.getLength(); index++) {
+            if ((homePlayer1 != null) && (homePlayer2 != null)) {
+                if ((homePlayer1.getPiece(index) != null)) {
+                    homePlayer1.getPiece(index).draw(c, g);
+                }
+                if (homePlayer2.getPiece(index) != null) {
+                    homePlayer2.getPiece(index).draw(c, g);
+                }
+
             }
         }
 
@@ -73,7 +73,7 @@ public class Board {
             System.out.println(coordenateY);
             positions[element] = new Position(coordenateX, coordenateY);
             squares[element] = new Square(positions[element]);
-            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            //squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
             coordenateY -= 30;
         }
 
@@ -82,23 +82,22 @@ public class Board {
         for (int element = 8; element < 16; element++) {
             positions[element] = new Position(coordenateX, coordenateY);
             squares[element] = new Square(positions[element]);
-            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            // squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
             coordenateX += 30;
-
         }
         //position 16 Solo tiene la coordenada
         coordenateX = 590;
         coordenateY = 300;
         positions[16] = new Position(coordenateX, coordenateY);
         squares[16] = new SpecialSquare("Avanza Azul", positions[16]);
-        squares[16].setPiece(new Piece(positions[16], new ImageIcon("./src/main/resources/img/piecered.png")));
+        // squares[16].setPiece(new Piece(positions[16], new ImageIcon("./src/main/resources/img/piecered.png")));
 
         coordenateX = 590;
         coordenateY = 225;
         for (int element = 17; element < 25; element++) {
             positions[element] = new Position(coordenateX, coordenateY);
             squares[element] = new Square(positions[element]);
-            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            //    squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
             coordenateX -= 30;
             System.out.println(coordenateX);
         }
@@ -107,7 +106,7 @@ public class Board {
         for (int element = 25; element < 33; element++) {
             positions[element] = new Position(coordenateX, coordenateY);
             squares[element] = new Square(positions[element]);
-            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            //  squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
             coordenateY -= 30;
             System.out.println(coordenateY);
         }
@@ -115,14 +114,14 @@ public class Board {
         coordenateY = 5;
         positions[33] = new Position(coordenateX, coordenateY);
         squares[33] = new SpecialSquare("Avanza Rojo", positions[33]);
-        squares[33].setPiece(new Piece(positions[33], new ImageIcon("./src/main/resources/img/pieceblack.png")));
+        // squares[33].setPiece(new Piece(positions[33], new ImageIcon("./src/main/resources/img/pieceblack.png")));
 
         coordenateX = 225;
         coordenateY = 5;
         for (int element = 34; element < 42; element++) {
             positions[element] = new Position(coordenateX, coordenateY);
             squares[element] = new Square(positions[element]);
-            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            //    squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
             coordenateY += 30;
             System.out.println(coordenateY);
         }
@@ -132,7 +131,7 @@ public class Board {
         for (int element = 42; element < 50; element++) {
             positions[element] = new Position(coordenateX, coordenateY);
             squares[element] = new Square(positions[element]);
-            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            //    squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
             coordenateX -= 30;
             System.out.println(coordenateX);
         }
@@ -141,14 +140,14 @@ public class Board {
         coordenateY = 300;
         positions[50] = new Position(coordenateX, coordenateY);
         squares[50] = new SpecialSquare("Avanza Verde", positions[50]);
-        squares[50].setPiece(new Piece(positions[50], new ImageIcon("./src/main/resources/img/pieceblue.png")));
+        //squares[50].setPiece(new Piece(positions[50], new ImageIcon("./src/main/resources/img/pieceblue.png")));
 
         coordenateX = 5;
         coordenateY = 360;
         for (int element = 51; element < 59; element++) {
             positions[element] = new Position(coordenateX, coordenateY);
             squares[element] = new Square(positions[element]);
-            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            //     squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
             coordenateX += 30;
             System.out.println(coordenateX);
         }
@@ -157,7 +156,7 @@ public class Board {
         for (int element = 59; element < 67; element++) {
             positions[element] = new Position(coordenateX, coordenateY);
             squares[element] = new Square(positions[element]);
-            squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
+            //    squares[element].setPiece(new Piece(positions[element], new ImageIcon("./src/main/resources/img/pieceyellow.png")));
             coordenateY += 30;
             System.out.println(coordenateY);
         }
@@ -167,37 +166,30 @@ public class Board {
         coordenateY = 590;
         positions[67] = new Position(coordenateX, coordenateY);
         squares[67] = new SpecialSquare("Avanza Amarillo", positions[67]);
-        squares[67].setPiece(new Piece(positions[67], new ImageIcon("./src/main/resources/img/pieceblack.png")));
+        // squares[67].setPiece(new Piece(positions[67], new ImageIcon("./src/main/resources/img/pieceblack.png")));
 
     }
 
-    public void setQuadrant1() {
-        //Amarillo
-        homeYellow.setPiece(0, new Piece(new Position(480, 450), new ImageIcon("./src/main/resources/img/pieceyellow.png")));
-        homeYellow.setPiece(1, new Piece(new Position(520, 450), new ImageIcon("./src/main/resources/img/pieceyellow.png")));
-        homeYellow.setPiece(2, new Piece(new Position(480, 550), new ImageIcon("./src/main/resources/img/pieceyellow.png")));
-        homeYellow.setPiece(3, new Piece(new Position(520, 550), new ImageIcon("./src/main/resources/img/pieceyellow.png")));
-        //Rojo
-        homeRed.setPiece(0, new Piece(new Position(80, 50), new ImageIcon("./src/main/resources/img/piecered.png")));
-        homeRed.setPiece(1, new Piece(new Position(120, 50), new ImageIcon("./src/main/resources/img/piecered.png")));
-        homeRed.setPiece(2, new Piece(new Position(80, 150), new ImageIcon("./src/main/resources/img/piecered.png")));
-        homeRed.setPiece(3, new Piece(new Position(120, 150), new ImageIcon("./src/main/resources/img/piecered.png")));
+    public void exit(String color) {
+        switch (color) {
+            case "Rojo":
+                break;
+            case "Amarillo":
+                homePlayer1.getPiece(0).setPosition(squares[4].getPosition());
+                squares[4].setPiece(homePlayer1.getPiece(0));
+                homePlayer1.setPiece(0, null);
+                break;
+            case "Azul":
+                break;
+            case "Verde":
+                break;
 
-        //Green
-        homeGreen.setPiece(0, new Piece(new Position(480, 50), new ImageIcon("./src/main/resources/img/piecegreen.png")));
-        homeGreen.setPiece(1, new Piece(new Position(520, 50), new ImageIcon("./src/main/resources/img/piecegreen.png")));
-        homeGreen.setPiece(2, new Piece(new Position(480, 150), new ImageIcon("./src/main/resources/img/piecegreen.png")));
-        homeGreen.setPiece(3, new Piece(new Position(520, 150), new ImageIcon("./src/main/resources/img/piecegreen.png")));
-        //Blue 
-        homeBlue.setPiece(0, new Piece(new Position(80, 450), new ImageIcon("./src/main/resources/img/pieceblue.png")));
-        homeBlue.setPiece(1, new Piece(new Position(120, 450), new ImageIcon("./src/main/resources/img/pieceblue.png")));
-        homeBlue.setPiece(2, new Piece(new Position(80, 550), new ImageIcon("./src/main/resources/img/pieceblue.png")));
-        homeBlue.setPiece(3, new Piece(new Position(120, 550), new ImageIcon("./src/main/resources/img/pieceblue.png")));
+        }
 
     }
 
     public void start() {
-        setQuadrant1();
+
     }
 
 }

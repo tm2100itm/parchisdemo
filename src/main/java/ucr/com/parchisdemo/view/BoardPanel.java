@@ -25,6 +25,7 @@ public class BoardPanel extends javax.swing.JPanel {
     
      public void setController(GameController controller) {
         this.controller = controller;
+         addMouseListener(controller);
     }
     
     @Override

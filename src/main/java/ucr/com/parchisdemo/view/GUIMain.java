@@ -37,18 +37,14 @@ public class GUIMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         btnPlay = new javax.swing.JButton();
         btnInstructions = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
-        jLabel1.setText("Juguemos Parchis");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
 
         btnPlay.setText("Jugar");
         getContentPane().add(btnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
@@ -62,6 +58,10 @@ public class GUIMain extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
+        jLabel1.setText("Juguemos Parchis");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
