@@ -40,31 +40,65 @@ public class GUIMain extends javax.swing.JFrame {
         btnPlay = new javax.swing.JButton();
         btnInstructions = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        btnCreditos = new javax.swing.JButton();
+        btnSonido = new javax.swing.JButton();
+        btnHistoria = new javax.swing.JButton();
+        jlFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnPlay.setText("Jugar");
-        getContentPane().add(btnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
+        btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/jugarPrincipal.png"))); // NOI18N
+        btnPlay.setActionCommand("Jugar");
+        btnPlay.setBorderPainted(false);
+        btnPlay.setContentAreaFilled(false);
+        getContentPane().add(btnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 300, 80));
 
-        btnInstructions.setText("Instrucciones");
-        getContentPane().add(btnInstructions, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
+        btnInstructions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/instruccionesPrincipal.png"))); // NOI18N
+        btnInstructions.setActionCommand("Instrucciones");
+        btnInstructions.setBorderPainted(false);
+        btnInstructions.setContentAreaFilled(false);
+        getContentPane().add(btnInstructions, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, -1, -1));
 
-        btnExit.setText("Salir");
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonSalir.png"))); // NOI18N
         btnExit.setToolTipText("");
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, -1, -1));
+        btnExit.setActionCommand("Salir");
+        btnExit.setBorderPainted(false);
+        btnExit.setContentAreaFilled(false);
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 610, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        btnCreditos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/creditosPrincipal.png"))); // NOI18N
+        btnCreditos.setActionCommand("Créditos");
+        btnCreditos.setBorderPainted(false);
+        btnCreditos.setContentAreaFilled(false);
+        btnCreditos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreditosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
-        jLabel1.setText("Juguemos Parchis");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
+        btnSonido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Sonido.png"))); // NOI18N
+        btnSonido.setActionCommand("Sonido");
+        btnSonido.setBorderPainted(false);
+        btnSonido.setContentAreaFilled(false);
+        getContentPane().add(btnSonido, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 100, -1));
+
+        btnHistoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/historiaPrincipal.png"))); // NOI18N
+        btnHistoria.setActionCommand("Historia");
+        btnHistoria.setBorderPainted(false);
+        btnHistoria.setContentAreaFilled(false);
+        getContentPane().add(btnHistoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, -1, -1));
+
+        jlFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoPrincipal.png"))); // NOI18N
+        getContentPane().add(jlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, -60, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCreditosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCreditosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -72,10 +106,12 @@ public class GUIMain extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreditos;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnHistoria;
     private javax.swing.JButton btnInstructions;
     private javax.swing.JButton btnPlay;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnSonido;
+    private javax.swing.JLabel jlFondo;
     // End of variables declaration//GEN-END:variables
 }
