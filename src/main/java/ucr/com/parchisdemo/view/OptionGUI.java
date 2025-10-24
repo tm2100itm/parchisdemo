@@ -50,9 +50,6 @@ public class OptionGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         txtNamePlayer1 = new javax.swing.JTextField();
         txtNamePlayer2 = new javax.swing.JTextField();
         cbxColor = new javax.swing.JComboBox<>();
@@ -62,31 +59,22 @@ public class OptionGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel2.setText("Escoja su color");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("Nombre Jugador 1");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setText("Nombre jugador 2");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
-
         txtNamePlayer1.setColumns(20);
-        getContentPane().add(txtNamePlayer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
+        getContentPane().add(txtNamePlayer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, -1, -1));
 
         txtNamePlayer2.setColumns(20);
-        getContentPane().add(txtNamePlayer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, -1, -1));
+        getContentPane().add(txtNamePlayer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, -1, -1));
 
         cbxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----------", "Amarillo", "Rojo", "Azul", "Verde" }));
-        getContentPane().add(cbxColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
+        getContentPane().add(cbxColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, -1, -1));
 
-        btnNext.setText("Continuar");
-        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, -1, -1));
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonContinuar.png"))); // NOI18N
+        btnNext.setActionCommand("Continuar");
+        btnNext.setBorderPainted(false);
+        btnNext.setContentAreaFilled(false);
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoPersonaje.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -101,9 +89,6 @@ public class OptionGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnNext;
     private javax.swing.JComboBox<String> cbxColor;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtNamePlayer1;
     private javax.swing.JTextField txtNamePlayer2;
     // End of variables declaration//GEN-END:variables
