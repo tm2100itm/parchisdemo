@@ -22,9 +22,10 @@ public class GUIMain extends javax.swing.JFrame {
     }
     
     public void listen(){
-    btnExit.addActionListener(controller);
-    btnPlay.addActionListener(controller);
-    btnInstructions.addActionListener(controller);
+        btnExit.addActionListener(controller);
+        btnPlay.addActionListener(controller);
+        btnInstructions.addActionListener(controller);
+        btnSonido.addActionListener(controller);
     
     }
 

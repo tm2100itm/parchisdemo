@@ -7,8 +7,8 @@ package ucr.com.parchisdemo.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import ucr.com.parchisdemo.model.Player;
+import ucr.com.parchisdemo.view.GUIIntrucciones;
 import ucr.com.parchisdemo.view.GUIMain;
-import ucr.com.parchisdemo.view.OptionGUI;
 
 /**
  *
@@ -17,13 +17,18 @@ import ucr.com.parchisdemo.view.OptionGUI;
 public class MainController implements ActionListener {
 
     private GUIMain guiMain;
-    
+    private GUIIntrucciones guiInstrucciones;
     private Player player1;
     private Player player2;
     private GameController gameController;
+    private AudioController audio;
 
     public MainController() {
         guiMain = new GUIMain(this);
+        guiInstrucciones = new GUIIntrucciones();
+        audio = new AudioController();
+        guiMain.setResizable(false);
+        guiMain.setLocationRelativeTo(guiMain);
         guiMain.setVisible(true);
     }
 
@@ -39,7 +44,18 @@ public class MainController implements ActionListener {
                 System.exit(0);
                 break;
             case "Instrucciones":
-                System.out.println("Instrucciones");
+                guiInstrucciones.setResizable(false);
+                guiInstrucciones.setLocationRelativeTo(guiMain);
+                guiInstrucciones.setVisible(true);
+                break;
+            case "Sonido":
+               this.audio.iniciarMusica("/img/audio.wav");
+                if((audio.principalSonido != null) && (audio.isEjecutandose() == false)){
+                    audio.principalSonido.stop();
+                    audio.setEjecutandose(true);
+                }else{
+                    audio.setEjecutandose(false);
+                }
                 break;
            
 

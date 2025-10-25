@@ -37,6 +37,7 @@ public class GameController implements ActionListener, MouseListener {
         guiGame = new GUIGame(this);
         boardPanel=guiGame.getBoardPanel();
         optionGUI = new OptionGUI(this);
+        optionGUI.setLocationRelativeTo(guiGame);
         optionGUI.setVisible(true);
     }
 
@@ -48,6 +49,7 @@ public class GameController implements ActionListener, MouseListener {
                 gameArea = new GameArea(player1, player2);
                 board = gameArea.getBoard();
                 optionGUI.setVisible(false);
+                guiGame.setLocationRelativeTo(guiGame);
                 guiGame.setVisible(true);
                 //Seleccionar jugador
                 System.out.println("Presionó jugar");
