@@ -14,6 +14,7 @@ import ucr.com.parchisdemo.model.Board;
 import ucr.com.parchisdemo.model.GameArea;
 import ucr.com.parchisdemo.model.Player;
 import ucr.com.parchisdemo.view.BoardPanel;
+import ucr.com.parchisdemo.view.ControlPanel;
 
 import ucr.com.parchisdemo.view.GUIGame;
 import ucr.com.parchisdemo.view.OptionGUI;
@@ -26,6 +27,7 @@ public class GameController implements ActionListener, MouseListener {
 
     private Board board;
     private BoardPanel boardPanel;
+    private ControlPanel controlPanel;
     private GUIGame guiGame;
     private GameArea gameArea;
     private Player player1;
@@ -36,6 +38,7 @@ public class GameController implements ActionListener, MouseListener {
     public GameController() {
         guiGame = new GUIGame(this);
         boardPanel=guiGame.getBoardPanel();
+        controlPanel=guiGame.getControlPanel();
         optionGUI = new OptionGUI(this);
         optionGUI.setVisible(true);
     }
@@ -48,6 +51,8 @@ public class GameController implements ActionListener, MouseListener {
                 gameArea = new GameArea(player1, player2);
                 board = gameArea.getBoard();
                 optionGUI.setVisible(false);
+                controlPanel.setJlNamePlayer1(player1.getName());
+                controlPanel.setJlNamePlayer2(player2.getName());
                 guiGame.setVisible(true);
                 //Seleccionar jugador
                 System.out.println("Presionó jugar");
@@ -92,6 +97,9 @@ public class GameController implements ActionListener, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
        System.out.println("x "+e.getX()+" "+" y "+e.getY());
+       System.out.println(gameArea.isInHome(e.getX(), e.getY()));
+       System.out.println(gameArea.getIndexPiece(e.getX(), e.getY()));
+       
     }
 
     @Override

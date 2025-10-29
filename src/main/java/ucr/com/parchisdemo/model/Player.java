@@ -5,6 +5,7 @@
 package ucr.com.parchisdemo.model;
 
 import java.awt.Color;
+import java.awt.Rectangle;
 
 /**
  *
@@ -15,6 +16,7 @@ public class Player {
     private String name;
     private Home home;
     private int score;
+   
 
     public Player(String color, String name) {
         this.color = color;

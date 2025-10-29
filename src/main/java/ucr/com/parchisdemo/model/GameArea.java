@@ -108,5 +108,13 @@ public class GameArea {
            turno=1;
        }
     }
+    
+    public boolean isInHome(int x, int y){
+        return homePlayer1.isInHome(x, y);
+    }
+
+     public int getIndexPiece(int x, int y){
+        return homePlayer1.getIndexPiece(x, y);
+    }
 
 }

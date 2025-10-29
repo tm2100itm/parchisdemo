@@ -5,6 +5,7 @@
 package ucr.com.parchisdemo.view;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import ucr.com.parchisdemo.controller.GameController;
 
 /**
@@ -36,6 +37,23 @@ public class ControlPanel extends javax.swing.JPanel {
         btnPlay.addActionListener(controller);
     }
 
+    public String getJlNamePlayer1() {
+        return jlNamePlayer1.getText();
+    }
+
+    public void setJlNamePlayer1(String namePlayer1) {
+        this.jlNamePlayer1.setText(namePlayer1);
+    }
+
+    public String getJlNamePlayer2() {
+        return jlNamePlayer2.getText();
+    }
+
+    public void setJlNamePlayer2(String namePlayer2) {
+        this.jlNamePlayer2.setText(namePlayer2);
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,26 +66,43 @@ public class ControlPanel extends javax.swing.JPanel {
         btnDado = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         btnPlay = new javax.swing.JButton();
-        jlJugador = new javax.swing.JLabel();
+        jlPlayer1 = new javax.swing.JLabel();
+        jlPlayer2 = new javax.swing.JLabel();
+        jlNamePlayer1 = new javax.swing.JLabel();
+        jlNamePlayer2 = new javax.swing.JLabel();
         jlFondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnDado.setText("dado");
-        add(btnDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 70, -1, -1));
+        btnDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dado1.png"))); // NOI18N
+        btnDado.setActionCommand("dado");
+        btnDado.setBorderPainted(false);
+        btnDado.setContentAreaFilled(false);
+        add(btnDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, -1, -1));
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonSalir.png"))); // NOI18N
         btnExit.setActionCommand("exit");
         btnExit.setContentAreaFilled(false);
-        add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, -1, -1));
+        add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 630, -1, -1));
 
         btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonJugar.png"))); // NOI18N
         btnPlay.setActionCommand("playGame");
         btnPlay.setContentAreaFilled(false);
-        add(btnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 350, -1, -1));
+        add(btnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 540, -1, -1));
 
-        jlJugador.setText("jLabel2");
-        add(jlJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, -1, -1));
+        jlPlayer1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/jugador1.png"))); // NOI18N
+        add(jlPlayer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 150, -1, -1));
+
+        jlPlayer2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/jugador2.png"))); // NOI18N
+        add(jlPlayer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 350, -1, -1));
+
+        jlNamePlayer1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jlNamePlayer1.setText("Jugador 1");
+        add(jlNamePlayer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 300, -1, -1));
+
+        jlNamePlayer2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jlNamePlayer2.setText("Jugador 2");
+        add(jlNamePlayer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 510, -1, -1));
 
         jlFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/TableroFondo.png"))); // NOI18N
         add(jlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -79,6 +114,9 @@ public class ControlPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnPlay;
     private javax.swing.JLabel jlFondo;
-    private javax.swing.JLabel jlJugador;
+    private javax.swing.JLabel jlNamePlayer1;
+    private javax.swing.JLabel jlNamePlayer2;
+    private javax.swing.JLabel jlPlayer1;
+    private javax.swing.JLabel jlPlayer2;
     // End of variables declaration//GEN-END:variables
 }

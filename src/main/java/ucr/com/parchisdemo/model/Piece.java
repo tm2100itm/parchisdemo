@@ -7,6 +7,7 @@ package ucr.com.parchisdemo.model;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 /**
@@ -17,6 +18,8 @@ public class Piece {
    private Position position;
       private ImageIcon image;
     private Color color;
+     private boolean isOnBoard=false;
+    private Rectangle hitBox;
 
     public Piece() {
         
@@ -26,6 +29,7 @@ public class Piece {
     public Piece(Position position,  ImageIcon image) {
         this.position=position;
         this.image = image;
+        hitBox=new Rectangle(position.getX(),position.getY(),position.getX()+30,position.getY()+40);
     }
     
     public void draw(Component c,Graphics g){
@@ -56,4 +60,21 @@ public class Piece {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    public boolean isIsOnBoard() {
+        return isOnBoard;
+    }
+
+    public Rectangle getHitBox() {
+        return hitBox;
+    }
+
+    public void setIsOnBoard(boolean isOnBoard) {
+        this.isOnBoard = isOnBoard;
+    }
+    
+    public boolean isInHitBox(int x, int y) {
+        return hitBox.contains(x, y);
+    }
+    
 }

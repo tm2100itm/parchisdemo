@@ -37,5 +37,26 @@ public class Home {
         return color;
     }
     
+    public boolean isInHome(int x, int y){
+         for(int index=0;index<pieces.length;index++){
+            if(pieces[index]!=null){
+               if(pieces[index].isInHitBox(x, y)){
+                 return true;
+               }
+            }
+         }
+         return false;
+    }
+    
+    public int getIndexPiece(int x, int y){
+         for(int index=0;index<pieces.length;index++){
+            if(pieces[index]!=null){
+               if(pieces[index].isInHitBox(x, y)){
+                 return index;
+               }
+            }
+         }
+         return -1;
+    }
     
 }
