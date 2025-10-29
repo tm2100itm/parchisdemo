@@ -4,7 +4,6 @@
 
 package ucr.com.parchisdemo;
 
-import ucr.com.parchisdemo.controller.GameController;
 import ucr.com.parchisdemo.controller.MainController;
 
 
