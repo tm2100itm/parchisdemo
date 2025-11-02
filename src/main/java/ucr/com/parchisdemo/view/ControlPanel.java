@@ -5,7 +5,6 @@
 package ucr.com.parchisdemo.view;
 
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import ucr.com.parchisdemo.controller.GameController;
 
 /**
@@ -30,11 +29,12 @@ public class ControlPanel extends javax.swing.JPanel {
         this.controller = controller;
         listen();
     }
-
+    
     public void listen() {
         btnDado.addActionListener(controller);
         btnExit.addActionListener(controller);
         btnPlay.addActionListener(controller);
+        
     }
 
     public String getJlNamePlayer1() {
@@ -78,16 +78,23 @@ public class ControlPanel extends javax.swing.JPanel {
         btnDado.setActionCommand("dado");
         btnDado.setBorderPainted(false);
         btnDado.setContentAreaFilled(false);
+        btnDado.setFocusPainted(false);
         add(btnDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, -1, -1));
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonSalir.png"))); // NOI18N
         btnExit.setActionCommand("exit");
+        btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExit.setFocusPainted(false);
         add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 630, -1, -1));
 
         btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonJugar.png"))); // NOI18N
-        btnPlay.setActionCommand("playGame");
+        btnPlay.setActionCommand("Jugar");
+        btnPlay.setBorderPainted(false);
         btnPlay.setContentAreaFilled(false);
+        btnPlay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPlay.setFocusPainted(false);
         add(btnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 540, -1, -1));
 
         jlPlayer1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/jugador1.png"))); // NOI18N

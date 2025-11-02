@@ -7,6 +7,7 @@ package ucr.com.parchisdemo.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import ucr.com.parchisdemo.model.Player;
+import ucr.com.parchisdemo.view.GUIGame;
 import ucr.com.parchisdemo.view.GUIIntrucciones;
 import ucr.com.parchisdemo.view.GUIMain;
 
@@ -22,6 +23,7 @@ public class MainController implements ActionListener {
     private Player player2;
     private GameController gameController;
     private AudioController audio;
+    private GUIGame guiGame;
 
     public MainController() {
         guiMain = new GUIMain(this);
@@ -49,15 +51,14 @@ public class MainController implements ActionListener {
                 guiInstrucciones.setVisible(true);
                 break;
             case "Sonido":
-               this.audio.iniciarMusica("/img/audio.wav");
-                if((audio.principalSonido != null) && (audio.isEjecutandose() == false)){
+                this.audio.iniciarMusica("/img/audio.wav");
+                if ((audio.principalSonido != null) && (audio.isEjecutandose() == false)) {
                     audio.principalSonido.stop();
                     audio.setEjecutandose(true);
-                }else{
+                } else {
                     audio.setEjecutandose(false);
                 }
                 break;
-           
 
         }
     }//Fin del método actionPerformed

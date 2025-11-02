@@ -4,6 +4,7 @@
  */
 package ucr.com.parchisdemo.view;
 
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import ucr.com.parchisdemo.controller.GameController;
 
@@ -29,7 +30,14 @@ public class GUIGame extends javax.swing.JFrame {
     public ControlPanel getControlPanel() {
         return controlPanel;
     }
-
+    
+    public JLabel getTxtTime(){
+        return this.txtTime;
+    }
+    
+    public void setTxtTime(JLabel newTime){
+        this.txtTime = newTime;
+    }
     
     
     public void showMessage(String message){
@@ -48,11 +56,16 @@ public class GUIGame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtTime = new javax.swing.JLabel();
         boardPanel = new ucr.com.parchisdemo.view.BoardPanel();
         controlPanel = new ucr.com.parchisdemo.view.ControlPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtTime.setBackground(new java.awt.Color(255, 255, 255));
+        txtTime.setFont(new java.awt.Font("Lucida Bright", 0, 24)); // NOI18N
+        getContentPane().add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 60, 30));
 
         boardPanel.setOpaque(false);
 
@@ -81,5 +94,6 @@ public class GUIGame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ucr.com.parchisdemo.view.BoardPanel boardPanel;
     private ucr.com.parchisdemo.view.ControlPanel controlPanel;
+    private javax.swing.JLabel txtTime;
     // End of variables declaration//GEN-END:variables
 }

@@ -72,6 +72,8 @@ public class OptionGUI extends javax.swing.JFrame {
         btnNext.setActionCommand("Continuar");
         btnNext.setBorderPainted(false);
         btnNext.setContentAreaFilled(false);
+        btnNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNext.setFocusPainted(false);
         getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoPersonaje.png"))); // NOI18N

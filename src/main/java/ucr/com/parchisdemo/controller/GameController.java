@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JLabel;
 import ucr.com.parchisdemo.model.Board;
 import ucr.com.parchisdemo.model.GameArea;
 import ucr.com.parchisdemo.model.Player;
@@ -33,12 +34,13 @@ public class GameController implements ActionListener, MouseListener {
     private Player player1;
     private Player player2;
     private OptionGUI optionGUI;
-   
+    private Tiempo tiempo;
 
     public GameController() {
         guiGame = new GUIGame(this);
-        boardPanel=guiGame.getBoardPanel();
-        controlPanel=guiGame.getControlPanel();
+        tiempo = new Tiempo();
+        boardPanel = guiGame.getBoardPanel();
+        controlPanel = guiGame.getControlPanel();
         optionGUI = new OptionGUI(this);
         optionGUI.setLocationRelativeTo(guiGame);
         optionGUI.setVisible(true);
@@ -52,15 +54,21 @@ public class GameController implements ActionListener, MouseListener {
                 gameArea = new GameArea(player1, player2);
                 board = gameArea.getBoard();
                 optionGUI.setVisible(false);
-<<<<<<< HEAD
+
                 controlPanel.setJlNamePlayer1(player1.getName());
                 controlPanel.setJlNamePlayer2(player2.getName());
-=======
+
                 guiGame.setLocationRelativeTo(guiGame);
->>>>>>> adf8443abf61c7c22d3d4e05e0d79c54f3c583fa
+
                 guiGame.setVisible(true);
+
                 //Seleccionar jugador
-                System.out.println("Presionó jugar");
+                System.out.println("Presionó continuar");
+                break;
+            case "Jugar":
+                if (guiGame.isVisible()) {
+                    this.time();
+                }
                 break;
             case "exit":
                 System.out.println("Fin del juego");
@@ -68,12 +76,18 @@ public class GameController implements ActionListener, MouseListener {
                 break;
             case "dado":
                 gameArea.setPlay();
-                
+
                 break;
         }
         boardPanel.repaint();
     }//Fin del actionPerformed
 
+    public void time() {
+        JLabel txtTime;
+        txtTime = guiGame.getTxtTime();
+        guiGame.setTxtTime(this.tiempo.iniciarTimer(txtTime));
+        return;
+    }
     public void makePlayer() {
         String color = optionGUI.getCbxColor();
         player1 = new Player(optionGUI.getCbxColor(), optionGUI.getTxtNamePlayer1());
@@ -96,37 +110,35 @@ public class GameController implements ActionListener, MouseListener {
 
     public void draw(Component c, Graphics g) {
         board.draw(c, g);
-        
+
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-       System.out.println("x "+e.getX()+" "+" y "+e.getY());
-       System.out.println(gameArea.isInHome(e.getX(), e.getY()));
-       System.out.println(gameArea.getIndexPiece(e.getX(), e.getY()));
-       
+        System.out.println("x " + e.getX() + " " + " y " + e.getY());
+        System.out.println(gameArea.isInHome(e.getX(), e.getY()));
+        System.out.println(gameArea.getIndexPiece(e.getX(), e.getY()));
+
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        
+
     }
-    
-    
 
 }
