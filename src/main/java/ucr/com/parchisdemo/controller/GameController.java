@@ -12,7 +12,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import ucr.com.parchisdemo.model.Board;
 import ucr.com.parchisdemo.model.GameArea;
+import ucr.com.parchisdemo.model.Piece;
 import ucr.com.parchisdemo.model.Player;
+import ucr.com.parchisdemo.model.Position;
 import ucr.com.parchisdemo.view.BoardPanel;
 import ucr.com.parchisdemo.view.ControlPanel;
 
@@ -33,6 +35,8 @@ public class GameController implements ActionListener, MouseListener {
     private Player player1;
     private Player player2;
     private OptionGUI optionGUI;
+    private Position posicion;
+    private Piece piece;
    
 
     public GameController() {
@@ -52,12 +56,12 @@ public class GameController implements ActionListener, MouseListener {
                 gameArea = new GameArea(player1, player2);
                 board = gameArea.getBoard();
                 optionGUI.setVisible(false);
-<<<<<<< HEAD
+
                 controlPanel.setJlNamePlayer1(player1.getName());
                 controlPanel.setJlNamePlayer2(player2.getName());
-=======
+
                 guiGame.setLocationRelativeTo(guiGame);
->>>>>>> adf8443abf61c7c22d3d4e05e0d79c54f3c583fa
+
                 guiGame.setVisible(true);
                 //Seleccionar jugador
                 System.out.println("Presionó jugar");
@@ -67,7 +71,9 @@ public class GameController implements ActionListener, MouseListener {
                 System.exit(0);
                 break;
             case "dado":
-                gameArea.setPlay();
+                int numDado=(int)(Math.random()*6+1);
+                controlPanel.setImage("./src/main/resources/img/dado"+numDado+".png");//dado1.png
+                gameArea.setPlay(numDado,posicion);
                 
                 break;
         }
@@ -102,8 +108,13 @@ public class GameController implements ActionListener, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
        System.out.println("x "+e.getX()+" "+" y "+e.getY());
-       System.out.println(gameArea.isInHome(e.getX(), e.getY()));
-       System.out.println(gameArea.getIndexPiece(e.getX(), e.getY()));
+       posicion= new Position(e.getX(),e.getY());
+//       System.out.println(gameArea.isInHomePlayer(e.getX(), e.getY()));
+//       System.out.println(gameArea.getIndexPiece(e.getX(), e.getY()));
+//       if(gameArea.isInHomePlayer(e.getX(), e.getY())){
+//         posicion= gameArea.getIndexPiece(e.getX(), e.getY());
+//
+//       }
        
     }
 

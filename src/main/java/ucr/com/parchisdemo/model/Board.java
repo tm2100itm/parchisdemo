@@ -171,25 +171,59 @@ public class Board {
     }
 
     public void exit(String color) {
-        switch (color) {
-            case "Rojo":
-                break;
-            case "Amarillo":
-                homePlayer1.getPiece(0).setPosition(squares[4].getPosition());
-                squares[4].setPiece(homePlayer1.getPiece(0));
-                homePlayer1.setPiece(0, null);
-                break;
-            case "Azul":
-                break;
-            case "Verde":
-                break;
 
-        }
+////        switch (color) {
+////            case "Rojo":
+////                                
+////                break;
+////            case "Amarillo":
+////                
+////                homePlayer1.getPiece(posicion).setPosition(squares[4].getPosition());
+////                squares[4].setPiece(homePlayer1.getPiece(posicion));
+////                homePlayer1.setPiece(posicion, null);
+////                break;
+////            case "Azul":
+////                index=21;
+////                break;
+////            case "Verde":
+////                index=56;
+////                break;
+////
+////        }
 
     }
 
     public void start() {
 
+    }
+    
+     public boolean isInBoard(int x, int y){
+         for(int index=0;index<squares.length;index++){
+            if(squares[index]!=null){
+               if(squares[index].getPiece().isInHitBox(x, y)){
+                 return true;
+               }
+            }
+         }
+         return false;
+    }
+    
+     public int getIndexPiece(int x, int y){
+         for(int index=0;index<squares.length;index++){
+            if(squares[index]!=null){
+               if(isInBoard(x, y)){
+                 return index;
+               }
+            }
+         }
+         return -1;
+    }
+    public Piece getPiece(int posicion,int turno){
+        if(turno==1){
+                return homePlayer1.getPiece(posicion);
+        
+        }
+    return null;
     }
 
 }

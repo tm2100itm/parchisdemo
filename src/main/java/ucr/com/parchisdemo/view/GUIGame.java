@@ -4,6 +4,7 @@
  */
 package ucr.com.parchisdemo.view;
 
+import java.awt.Image;
 import javax.swing.JOptionPane;
 import ucr.com.parchisdemo.controller.GameController;
 
@@ -30,7 +31,7 @@ public class GUIGame extends javax.swing.JFrame {
         return controlPanel;
     }
 
-    
+   
     
     public void showMessage(String message){
         JOptionPane.showMessageDialog(null,message);

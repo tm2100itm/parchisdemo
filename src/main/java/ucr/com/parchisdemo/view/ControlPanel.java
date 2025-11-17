@@ -4,6 +4,8 @@
  */
 package ucr.com.parchisdemo.view;
 
+import java.awt.Image;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import ucr.com.parchisdemo.controller.GameController;
@@ -31,6 +33,10 @@ public class ControlPanel extends javax.swing.JPanel {
         listen();
     }
 
+    public void setImage(String nameImage){
+       btnDado.setIcon(new ImageIcon(nameImage));
+    
+    }
     public void listen() {
         btnDado.addActionListener(controller);
         btnExit.addActionListener(controller);

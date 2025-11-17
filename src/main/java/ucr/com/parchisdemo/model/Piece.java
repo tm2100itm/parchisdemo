@@ -29,7 +29,8 @@ public class Piece {
     public Piece(Position position,  ImageIcon image) {
         this.position=position;
         this.image = image;
-        hitBox=new Rectangle(position.getX(),position.getY(),position.getX()+30,position.getY()+40);
+        hitBox=new Rectangle(position.getX(),position.getY(),30,40);
+        
     }
     
     public void draw(Component c,Graphics g){

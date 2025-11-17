@@ -14,10 +14,12 @@ import ucr.com.parchisdemo.model.Position;
 public class Home {
     private String color;
     private Piece[] pieces;
+    private int exit=-1;
 
-    public Home(String color) {
+    public Home(String color, int exit) {
         this.color = color;
         pieces= new Piece[4];
+        this.exit=exit;
     }
     
     public void setPiece(int index,Piece piece){
@@ -58,5 +60,7 @@ public class Home {
          }
          return -1;
     }
+    
+   
     
 }
